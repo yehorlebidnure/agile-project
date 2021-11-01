@@ -1,0 +1,18 @@
+.notification {
+    position: fixed;
+    bottom: 25px;
+    min-height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100000;
+    display: none;
+
+    &.show {
+        display: block;
+    }
+
+    & pre {
+        margin: 0;
+        padding: 0;
+    }
+}

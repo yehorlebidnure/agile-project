@@ -1,0 +1,23 @@
+<div *ngIf="imageSrc else message" class="image text-center">
+    <img *ngIf="!loading"
+         [src]="getImageSrc()"
+         [alt]="getImageAlt()"
+         class="img-thumbnail"
+    >
+    <app-loader *ngIf="loading"></app-loader>
+</div>
+
+<ng-template #message>
+    <div class="message" [class.invalid]="invalidType">
+        {{invalidType ? 'Invalid file format provided' : 'No Image provided...'}}
+    </div>
+</ng-template>
+
+<div>
+    <input #imageInput
+           type="file"
+           accept='image/*'
+           class="form-control"
+           [class.is-invalid]="invalidType"
+           (change)="handleUpload(imageInput.files[0])">
+</div>

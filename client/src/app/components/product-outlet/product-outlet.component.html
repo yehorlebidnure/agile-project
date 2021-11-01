@@ -1,0 +1,43 @@
+<div class="products">
+    <div class="mb-3">
+        <app-product-random></app-product-random>
+    </div>
+    <hr>
+    <div class="products__menu search">
+        <div class="mb-3">
+            <app-filter-search
+                (onApply)="handleFilterSearch($event)"
+            ></app-filter-search>
+        </div>
+    </div>
+    <div class="products__menu">
+        <app-filter-order *ngIf="withOrdering"
+                          [options]="orderOptions"
+                          (onChange)="handleOrderChange($event)"
+        ></app-filter-order>
+        <app-filter-price
+            *ngIf="withFilterPrice"
+            (onApply)="handleFilterPrice($event)"
+        ></app-filter-price>
+    </div>
+
+    <h5>{{title}}</h5>
+    <hr>
+
+    <app-product-list
+        *ngIf="this.products && this.products.length"
+        [products]="this.products">
+    </app-product-list>
+
+    <div *ngIf="loading" class="text-center">
+        <app-loader></app-loader>
+    </div>
+
+    <div *ngIf="!loading && !isAllFetched" class="text-center">
+        <button class="btn btn-dark" (click)="fetchProducts()">Load more</button>
+    </div>
+
+    <div *ngIf="!loading && products.length === 0" class="text-center">
+        No products
+    </div>
+</div>

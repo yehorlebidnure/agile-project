@@ -1,0 +1,11 @@
+<div class="product-page">
+    <div class="product-page__products">
+        <div class="product-page__products-up">
+            <app-category (onClick)="handleCategoryClick($event)"></app-category>
+        </div>
+        <app-product-outlet
+            title="Recently added products"
+            [params]="params"
+        ></app-product-outlet>
+    </div>
+</div>

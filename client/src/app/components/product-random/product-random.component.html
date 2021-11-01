@@ -1,0 +1,12 @@
+<div class="product-random">
+    <h5>Random product:</h5>
+    <app-product-list-item
+        *ngIf="!loading && product"
+        [isAdmin]="isAdmin"
+        [product]="product"
+        [isSingle]="true"
+    ></app-product-list-item>
+
+    <app-loader *ngIf="loading"></app-loader>
+
+</div>

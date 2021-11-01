@@ -1,0 +1,65 @@
+.card {
+
+    margin: 0 auto;
+    width: 15rem;
+
+    &.isSingle {
+        width: 25rem;
+    }
+
+    &-outer {
+        &.isSingle {
+            width: 100%;
+        }
+
+        width: 18rem;
+        padding: 0.5rem 1.25rem;
+        margin: 0 auto;
+    }
+
+    img.isSingle {
+        margin: 0 auto;
+        max-width: 256px;
+    }
+
+    &-title {
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+    }
+
+    &-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 0.8rem 1rem;
+    }
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    & .admin-manage {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:not(:first-of-type) {
+            margin-left: 8px;
+        }
+    }
+
+    & .card-price {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #444;
+    }
+}

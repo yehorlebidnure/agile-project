@@ -1,0 +1,12 @@
+<div class="category-manage">
+    <div class="category-manage__inner shadow">
+        <h3 class="title">Manage category</h3>
+        <app-category-form
+            *ngIf="!loading"
+            (onSubmit)="handleSubmit($event)"
+            [category]="category"
+        ></app-category-form>
+
+        <app-loader *ngIf="loading"></app-loader>
+    </div>
+</div>

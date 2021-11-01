@@ -1,0 +1,45 @@
+<div class="card-outer" [class.isSingle]="isSingle">
+    <div class="card product-card" [class.isSingle]="isSingle">
+
+        <app-loader *ngIf="loading"></app-loader>
+
+        <ng-template [ngIf]="!loading && product">
+            <img [src]="getImageSrc()" class="card-img-top" [class.isSingle]="isSingle" [alt]="product.title">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a style="cursor: pointer" (click)="handleNavigate()">{{product.title}}</a>
+                </h5>
+                <div class="card-bottom">
+                    <div class="card-price">{{product.price|currency}}</div>
+                    <button
+                        *ngIf="!isAdmin"
+                        class="btn btn-primary"
+                        (click)="handleAddProductToCart(product)"
+                    >
+                        <span class="material-icons">shopping_cart</span>
+                    </button>
+                    <div *ngIf="isAdmin" class="admin-manage">
+                        <button
+                            class="btn btn-primary"
+                            (click)="handleRecommendationChange()"
+                        >
+                            <span class="material-icons">{{this.product.isPromo ? 'star' : 'star_border'}}</span>
+                        </button>
+                        <button
+                            class="btn btn-success"
+                            (click)="handleNavigateManage()"
+                        >
+                            <span class="material-icons">edit</span>
+                        </button>
+                        <button
+                            class="btn btn-danger"
+                            (click)="handleDelete()"
+                        >
+                            <span class="material-icons">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>
