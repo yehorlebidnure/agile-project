@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "stage2-catalog-client"
+  "defaultProject": "stage2-catalog-client",
+  "cli": {
+    "analytics": false
+  }
 }
