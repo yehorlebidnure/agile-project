@@ -1,6 +1,5 @@
 const { ErrorHelper } = require('../utils/ErrorHelper/ErrorHelper');
 const { UserService } = require('../services');
-const { PermissionError } = require('../utils/ErrorHelper/customErrors/PermissionError');
 
 class UserController {
 

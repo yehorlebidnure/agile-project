@@ -1,6 +1,5 @@
 const {Router} = require('express');
 const {ControllerFactory} = require('../../factories');
-const {Authorization} = require('../../middlewares/Authorization');
 const {ErrorHelper} = require('../../utils/ErrorHelper/ErrorHelper');
 const {ServerError} = require('../../utils/ErrorHelper/customErrors/ServerError')
 

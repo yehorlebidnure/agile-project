@@ -1,7 +1,7 @@
 const {Connection} = require('../core/Connection');
 const { ServerError } = require('../utils/ErrorHelper/customErrors/ServerError');
-const { CartBuilder, UserBuilder } = require('../builder');
-const { User, Cart } = require('../models');
+const { CartBuilder } = require('../builder');
+const { Cart } = require('../models');
 const { Dao } = require('../core/Dao');
 
 class CartDao extends Dao {

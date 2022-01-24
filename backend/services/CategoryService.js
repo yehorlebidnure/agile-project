@@ -1,8 +1,8 @@
 const { CategoryDao } = require('../dao');
 const { Category } = require('../models');
 const { CategoryBuilder } = require('../builder')
-const { Validator, ValidationResult } = require('../utils/validator/Validator')
-const { UnprocessableEntityError, BadRequestError } = require('../utils/ErrorHelper/customErrors');
+const { Validator } = require('../utils/validator/Validator')
+const { UnprocessableEntityError } = require('../utils/ErrorHelper/customErrors');
 
 class CategoryService {
 

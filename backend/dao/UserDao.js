@@ -1,6 +1,6 @@
 const { Connection } = require('../core/Connection');
 const { Dao } = require('../core/Dao');
-const { User, Role } = require('../models');
+const { User } = require('../models');
 const { RoleBuilder, UserBuilder } = require('../builder')
 const { ServerError } = require('../utils/ErrorHelper/customErrors');
 

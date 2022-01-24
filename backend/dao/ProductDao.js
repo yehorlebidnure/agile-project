@@ -1,7 +1,6 @@
 const {Connection} = require('../core/Connection');
 const { Product } = require('../models');
 const { Dao } = require('../core/Dao');
-const { ProductBuilder, ImageBuilder, CategoryBuilder } = require('../builder');
 const { ServerError } = require('../utils/ErrorHelper/customErrors');
 
 class ProductDao extends Dao {

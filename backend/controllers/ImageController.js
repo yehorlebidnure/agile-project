@@ -1,6 +1,3 @@
-const path = require('path');
-const multer = require('multer');
-const { Image } = require('../models');
 const { ImageService } = require('../services');
 const { ErrorHelper } = require('../utils/ErrorHelper/ErrorHelper');
 

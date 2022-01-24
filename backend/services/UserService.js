@@ -1,6 +1,6 @@
 const moment = require('moment');
 const { User } = require('../models');
-const { UserBuilder, RoleBuilder } = require('../builder');
+const { UserBuilder } = require('../builder');
 const { UserDao, RoleDao, CartDao } = require('../dao');
 const { HashHelper } = require('../utils/HashHelper');
 const { TokenHelper } = require('../utils/TokenHelper');
