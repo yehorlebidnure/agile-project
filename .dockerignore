@@ -1,0 +1,16 @@
+# git
+.git/
+.gitignore
+README.md
+# modules
+node_modules/
+package-lock.json
+client/node_modules/
+client/package-lock.json
+# public files
+public/images/*/*
+!public/images/**/0
+# docker
+Dockerfile
+.dockerignore
+docker-compose.yml

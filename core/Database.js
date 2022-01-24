@@ -23,7 +23,13 @@ class Database {
 
     /**
      * Database constructor
-     * @param   {{username: string, database: string, password: string}}  config  Database configuration
+     * @param   {{
+     *     username: string,
+     *     database: string,
+     *     password: string,
+     *     host: string,
+     *     port: number,
+     * }}  config  Database configuration
      */
     constructor(config) {
         if (Database.instance) {
@@ -34,7 +40,9 @@ class Database {
         this.config = {
             user: config.username,
             password: config.password,
-            database: config.database
+            database: config.database,
+            host: config.host,
+            port: config.port,
         };
         Connection.initializePool(this.config);
     }

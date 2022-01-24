@@ -11,6 +11,8 @@ module.exports = {
     user: config.db.username,
     password: config.db.password,
     database: config.db.database,
+    host: config.db.host,
+    port: config.db.port,
   },
   migrations: {
     directory: path.join(__dirname, 'db', 'migrations')

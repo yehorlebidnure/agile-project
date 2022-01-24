@@ -10,6 +10,8 @@ class Config {
             username: null,
             database: null,
             password: null,
+            host: null,
+            port: null,
         };
         this.app = {
             port: null,
@@ -23,10 +25,14 @@ class Config {
     load() {
         dotenv.config();
 
-        this.db.username = process.env['PG_USERNAME'];
-        this.db.database = process.env['PG_DATABASE'];
-        this.db.password = process.env['PG_PASSWORD'];
+        // Database env variables
+        this.db.username = process.env['POSTGRES_USERNAME'];
+        this.db.database = process.env['POSTGRES_DATABASE'];
+        this.db.password = process.env['POSTGRES_PASSWORD'];
+        this.db.host = process.env['POSTGRES_HOST'];
+        this.db.port = process.env['POSTGRES_PORT'];
 
+        // App env variables
         this.app.port = process.env['PORT'];
         this.app.host = process.env['HOST'];
     }
