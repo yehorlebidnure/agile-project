@@ -2,6 +2,6 @@ node_modules
 .idea
 .vscode
 .env
-public/images/products/*
-!/0/
+public/images/*/*
+!public/images/**/0
 package-lock.json
