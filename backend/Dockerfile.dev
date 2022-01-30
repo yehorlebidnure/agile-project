@@ -2,20 +2,17 @@
 FROM node:14
 
 # Creating a working directory
-WORKDIR /app
+WORKDIR /stage-2-catalog-server
 
 # Setup OS modules for work
 RUN apt-get update && apt-get install nano
 
 # Installing global modules for application
-RUN npm install -g @angular/cli nodemon knex
+RUN npm install -g nodemon knex
 
-# copying project folder into working directiry
+# Installing local project modules
 COPY package.json .
-RUN npm run install:server
-
-COPY ./client/package.json ./client/
-RUN npm run install:client
+RUN npm install
 
 COPY . ./
 
@@ -27,7 +24,7 @@ RUN chmod +x /wait && /wait
 # RUN npm run update-db & npm run seed-db
 
 # Actually do nothing (for understanding purposes)
-EXPOSE 3000 4200
+EXPOSE 3000
 
 # Command to run the project
-CMD ["npm", "run", "dev:all"]
+CMD ["npm", "run", "dev"]

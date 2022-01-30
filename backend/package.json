@@ -1,0 +1,23 @@
+{
+    "name": "stage-2-catalog-backend",
+    "version": "1.0.0",
+    "scripts": {
+        "update-db": "knex migrate:latest",
+        "seed-db": "knex seed:run",
+        "dev": "nodemon index.js"
+    },
+    "author": "yehor.lebid@codeit.pro",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.0.0",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "jimp": "^0.16.1",
+        "jsonwebtoken": "^8.5.1",
+        "knex": "^1.0.1",
+        "moment": "^2.29.1",
+        "multer": "^1.4.2",
+        "pg": "^8.5.1"
+    }
+}

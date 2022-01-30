@@ -1,5 +1,7 @@
+import { ENV } from "./common-env";
+
 export const environment = {
     production: true,
-    api: 'http://localhost:3000/api',
-    url: 'http://localhost:3000',
+    api: `http://${ENV.HOST}:${ENV.PORT}/api`,
+    url: `http://${ENV.HOST}:${ENV.PORT}`,
 };

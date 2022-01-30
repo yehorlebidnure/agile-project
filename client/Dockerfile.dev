@@ -1,0 +1,23 @@
+# Image is based on node:14
+FROM node:14
+
+# Creating a working directory
+WORKDIR /stage-2-catalog-client
+
+# Setup OS modules for work
+RUN apt-get update && apt-get install nano
+
+# Installing global modules for application
+RUN npm install -g @angular/cli
+
+# Installing local project modules
+COPY package.json .
+RUN npm install
+
+COPY . ./
+
+# Actually do nothing (for understanding purposes)
+EXPOSE 4200
+
+# Command to run the project
+CMD ["npm", "run", "dev"]

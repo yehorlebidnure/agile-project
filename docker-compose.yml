@@ -1,28 +1,70 @@
 version: "3"
 services:
-  main-app:
-    build: .
+
+  server-app:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile.dev
+    networks:
+      - stage-2-catalog
     ports:
       - "3000:3000"
-      - "4200:4200"
     volumes:
-      - ./:/app
-      - public-data:/app/public
-      # prevents from overwritting node_modules
-      - /app/node_modules
-      - /app/client/node_modules
+      # Volume for backend fiels
+      - ./backend/builder:/stage-2-catalog-server/builder
+      - ./backend/controllers:/stage-2-catalog-server/controllers
+      - ./backend/core:/stage-2-catalog-server/core
+      - ./backend/dao:/stage-2-catalog-server/dao
+      - ./backend/db:/stage-2-catalog-server/db
+      - ./backend/factories:/stage-2-catalog-server/factories
+      - ./backend/middlewares:/stage-2-catalog-server/middlewares
+      - ./backend/models:/stage-2-catalog-server/models
+      - ./backend/routes:/stage-2-catalog-server/routes
+      - ./backend/services:/stage-2-catalog-server/services
+      - ./backend/utils:/stage-2-catalog-server/utils
+
+      # Prevents from overwritting node_modules
+      - /stage-2-catalog-server/node_modules
+
+      # Volume for stored files
+      - public-data:/stage-2-catalog-server/public
     depends_on:
       - postgres
+
+  client-app:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile.dev
+    networks:
+      - stage-2-catalog
+    ports:
+      - "4200:4200"
+    volumes:
+      # Volumes for frontend files
+      - ./client/src:/stage-2-catalog-client/src
+
+      # Prevents from overwritting node_modules
+      - /stage-2-catalog-client/node_modules
+    depends_on:
+      - server-app
+
   postgres:
     image: postgres:14
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_DB=stage_2_catalog
+    networks:
+      - stage-2-catalog
     ports:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+
+networks:
+  stage-2-catalog:
+    driver: bridge
+
 volumes:
   postgres-data:
   public-data:

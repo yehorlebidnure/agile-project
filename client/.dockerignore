@@ -1,0 +1,10 @@
+# git
+.git/
+.gitignore
+README.md
+# modules
+node_modules/
+package-lock.json
+# docker
+Dockerfile
+.dockerignore

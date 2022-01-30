@@ -28,7 +28,8 @@ export class ErrorService {
         // set notification
         this.notificationService.setErrorNotification(message);
         // log error in console
-        // this.logError();
+        this.logError();
+        console.log('Test')
     }
 
     /**
