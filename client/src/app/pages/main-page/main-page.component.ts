@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {IProductQueryParameters} from '../../interfaces/product.interface';
 import {ICategory} from '../../interfaces/category.interface';
 import {Router} from '@angular/router';
 
